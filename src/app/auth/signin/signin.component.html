@@ -1,0 +1,57 @@
+<div id="all-output" class="col-md-10">
+
+
+  <!--======= log_in_page =======-->
+  <div id="log-in" class="site-form log-in-form">
+
+    <div id="log-in-head">
+      <h1>Log in</h1>
+      <div id="logo">
+        <a [routerLink]="''" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}"><img
+          src="/assets/img/logo.png" alt=""></a>
+      </div>
+    </div>
+
+    <div class="form-output">
+
+      <div class="alert alert-danger alert-dismissible" role="alert" *ngIf="loginStatus.error">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <b [innerHTML]="loginStatus.message"></b>
+      </div>
+
+      <form (ngSubmit)="onLogin()" [formGroup]="form">
+        <div class="form-group label-floating">
+          <label class="control-label">Your Email</label>
+          <input formControlName="email" [ngClass]="{
+          'invalid': form.controls.email.invalid && form.controls.email.touched,
+          'valid': form.controls.email.valid && form.controls.email.touched
+           }" class="form-control" placeholder="Email..." type="email">
+          <span style="color: red;" *ngIf="form.controls.email.invalid && form.controls.email.touched">
+          Invalid email, please recheck your input
+        </span>
+        </div>
+
+        <div class="form-group label-floating">
+          <label class="control-label">Your Password</label>
+          <input [ngClass]="{
+          'invalid': form.controls.password.invalid && form.controls.password.touched,
+          'valid': form.controls.password.valid && form.controls.password.touched
+           }" formControlName="password" class="form-control" placeholder="Password..." type="password">
+          <span style="color: red;" *ngIf="form.controls.password.invalid && form.controls.password.touched">
+          Invalid password, please recheck your input
+        </span>
+        </div>
+
+
+        <button type="submit" class="btn btn-lg btn-primary full-width" [disabled]="!form.valid">Login</button>
+
+        <div class="or"></div>
+
+        <p>Don't you have an account? <a [routerLink]="'register'" [routerLinkActive]="'active'"
+                                         [routerLinkActiveOptions]="{exact: true}">Register Now!</a></p>
+      </form>
+    </div>
+  </div>
+  <!--======= // log_in_page =======-->
+
+</div>

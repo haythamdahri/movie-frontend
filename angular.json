@@ -23,9 +23,24 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/font-awesome/css/font-awesome.min.css",
+              "node_modules/@movie/css/style.css",
+              "node_modules/@movie/css/responsive.css",
               "src/styles.css"
             ],
-            "scripts": [],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "node_modules/gsap/src/minified/jquery.gsap.min.js",
+              "node_modules/gsap/src/minified/TimelineMax.min.js",
+              "node_modules/gsap/src/minified/TweenMax.min.js",
+              "node_modules/@movie/js/grid-blog.min.js",
+              "node_modules/@movie/js/imagesloaded.pkgd.min.js",
+              "node_modules/@movie/js/jquery.sticky-kit.min.js",
+              "node_modules/@movie/js/slideshow.js",
+              "node_modules/@movie/js/custom.js"
+            ],
             "es5BrowserSupport": true
           },
           "configurations": {

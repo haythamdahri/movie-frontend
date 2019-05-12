@@ -1,0 +1,65 @@
+<div id="all-output" class="col-md-10">
+
+
+  <!--======= log_in_page =======-->
+  <div id="log-in" class="site-form log-in-form">
+
+    <div id="log-in-head">
+      <h1>Sign up</h1>
+      <div id="logo">
+        <a [routerLink]="''" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}"><img
+          src="/assets/img/logo.png" alt=""></a>
+      </div>
+    </div>
+
+    <div class="form-output">
+      <form (ngSubmit)="onLogin()" [formGroup]="form">
+        <div class="form-group label-floating">
+          <label class="control-label">Your Email</label>
+          <input formControlName="email" [ngClass]="{
+          'invalid': form.controls.email.invalid && form.controls.email.touched,
+          'valid': form.controls.email.valid && form.controls.email.touched
+           }" class="form-control" placeholder="Email..." type="email">
+          <span style="color: red;" *ngIf="form.controls.email.invalid && form.controls.email.touched">
+          Invalid email, please recheck your input
+        </span>
+        </div>
+
+        <div class="form-group label-floating">
+          <label class="control-label">Password</label>
+          <input [ngClass]="{
+          'invalid': form.controls.password.invalid && form.controls.password.touched,
+          'valid': form.controls.password.valid && form.controls.password.touched
+           }" formControlName="password" class="form-control" placeholder="Password..." type="password">
+          <span style="color: red;" *ngIf="form.controls.password.invalid && form.controls.password.touched">
+          Invalid password, please recheck your input
+        </span>
+        </div>
+
+        <div class="form-group label-floating">
+          <label class="control-label">Confirm Password</label>
+          <input [ngClass]="{
+          'invalid': form.controls.confirmPassword.invalid && form.controls.confirmPassword.touched,
+          'valid': form.controls.confirmPassword.valid && form.controls.confirmPassword.touched
+           }" formControlName="confirmPassword" class="form-control" placeholder="Password..." type="password">
+          <span style="color: red;" *ngIf="form.controls.confirmPassword.invalid && form.controls.confirmPassword.touched">
+          Invalid password, please recheck your input<br>
+        </span>
+          <span style="color: red;" *ngIf="form.get('confirmPassword').value != form.get('password').value">
+          password does not match!
+        </span>
+        </div>
+
+
+        <button type="submit" class="btn btn-lg btn-primary full-width" [disabled]="!form.valid">Login</button>
+
+        <div class="or"></div>
+
+        <p>You have already an account? <a [routerLink]="'login'" [routerLinkActive]="'active'"
+                                           [routerLinkActiveOptions]="{exact: true}">Login </a></p>
+      </form>
+    </div>
+  </div>
+  <!--======= // log_in_page =======-->
+
+</div>
